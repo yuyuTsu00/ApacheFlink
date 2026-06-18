@@ -357,9 +357,9 @@ flink run -c com.learn.flink.lab01.KafkaToLogJob target/flink-learning-1.0.jar
 Verify output:
 
 ```bash
-ls -R /tmp/flink-out/lab01
+ls -R /tmp/flink-output/lab01
 
-tail -f /tmp/flink-out/lab01/*/*
+tail -f /tmp/flink-output/lab01/*/*
 ```
 
 Cancel job:
@@ -381,7 +381,7 @@ flink run -c com.learn.flink.lab02.TumblingWindowJob target/flink-learning-1.0.j
 Monitor:
 
 ```bash
-ls /tmp/flink-out/lab02
+ls /tmp/flink-output/lab02
 
 tail -f $FLINK_HOME/log/*taskexecutor*.out
 ```
@@ -395,7 +395,7 @@ This demonstrates Flink state recovery.
 ## Submit Job
 
 ```bash
-flink run -c com.learn.flink.labs.Lab03_Checkpointing target/flink-learning-1.0.jar
+flink run -c com.learn.flink.lab03.CheckpointStatefulJob target/flink-learning-1.0.jar
 ```
 
 ## List Running Jobs
@@ -429,7 +429,7 @@ flink cancel <JOB_ID>
 ```bash
 flink run \
 -s file:///tmp/flink-savepoints/<savepoint-folder> \
--c com.learn.flink.labs.Lab03_Checkpointing \
+-c com.learn.flink.lab03.CheckpointStatefulJob \
 target/flink-learning-1.0.jar
 ```
 
@@ -444,7 +444,7 @@ State continues from the savepoint instead of restarting from zero.
 Submit:
 
 ```bash
-flink run -c com.learn.flink.labs.Lab04_LateData target/flink-learning-1.0.jar
+flink run -c com.learn.flink.lab04.LateDataSideOutputJob target/flink-learning-1.0.jar
 ```
 
 Monitor:
@@ -462,7 +462,7 @@ Observe how late events are handled.
 Submit:
 
 ```bash
-flink run -c com.learn.flink.labs.Lab05_ProcessFunction target/flink-learning-1.0.jar
+flink run -c com.learn.flink.lab05.ProcessFunctionJob target/flink-learning-1.0.jar
 ```
 
 Monitor logs:
